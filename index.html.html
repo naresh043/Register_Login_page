@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css.css">
+</head>
+<body>
+    <form action="">
+        <input type="text" id="username">
+        <input type="text" id="password">
+        <input type="button" value="REGISTER" id="register">
+    </form>
+    <script>
+        var btn=document.getElementById("register")
+        var array=[]
+        btn.addEventListener("click",function (){
+               //here get the user and password values from input field
+            var user=document.getElementById("username").value;
+            var pass=document.getElementById("password").value;
+            console.log(user,pass)
+            if(user!="" && pass!="" && user!=" " && pass!=" " ){
+                // value to store the an object 
+
+            var obj={
+                username:user,
+                password:pass
+            }
+            console.log(obj)
+            //push the value in the array 
+            array.push(obj)
+            localStorage.setItem("register",JSON.stringify(array));
+
+            // alert the register successful
+            var msg=confirm("REGISTER succussful do you want go the login page");
+            if(msg){
+                window.location.assign("login.html")
+            }
+            }else{
+                alert("plz give me correct input")
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

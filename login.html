@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css.css">
+</head>
+<body>
+    <form action="">
+        <input type="text" id="username">
+        <input type="text" id="password">
+        <input type="button" value="LOGIN" id="register">
+    </form>
+    <script>
+        var btn=document.getElementById("register")
+        // var array=[]
+        btn.addEventListener("click",function (){
+               //here get the user and password values from input field
+            var user=document.getElementById("username").value;
+            var pass=document.getElementById("password").value;
+
+            var data=JSON.parse(localStorage.getItem("register"));
+
+            console.log(data)
+            var array=[];
+            for(i=0;i<data.length;i++){
+                if(data[i].username==user||data[i].password==pass){//h
+                    array.push(data[i])
+                }
+            }
+            console.log(array.length)
+            if(array.length>0){
+                if(user==array[0].username && pass==array[0].password){
+                    alert("LOGIN SUCCUSSFUl");
+                }
+                else if(user==array[0].username ){
+                    alert("Incorrect Password")
+                }
+                else if(pass==array[0].password){
+                    alert("Incorrect username")
+                }
+                else(
+                    window.alert("Incorrect username & password ")
+                )
+            }
+            else{
+                var msg=confirm("U didnot register DO u want to go register page")
+                if(msg){
+                    window.location.assign("register.html")
+                }
+                else{
+                    alert("please register the first")
+                }
+                // alert("please register")
+            }
+        
+        })
+
+
+
+    </script>
+</body>
+</html>
