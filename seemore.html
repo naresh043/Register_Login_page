@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+        #parent{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid rgb(0, 195, 255);
+            border-radius: 10px;
+            width: 300px;
+            height: 480px;
+
+        }
+        #image{
+            height: 100px;
+            width: 100px;
+            border: 2px solid;
+            border-radius: 5px;
+            margin-top: 5px;
+
+        }
+        #title{
+            font-size:20px;
+        }
+        #description{
+           margin: 0px 20px;
+        }
+button{
+    margin-bottom: 10px;
+}
+    </style>
+</head>
+<body>
+    <!-- <div id="parent">
+        <img src="" alt="" id="image">
+        <h1 id="id"></h1>
+    <h1 id="title"></h1>
+    <h2 id="price"></h2>
+    <p id="description"></p>
+
+    <button>PLACE THE ORDER</button>
+    </div> -->
+
+
+
+  <script>
+      let cheakout=JSON.parse(localStorage.getItem("cheakoutitem"));
+      for(let i=0;i<cheakout.length;i++){
+      var divc=document.createElement("div");
+      divc.id="parent"
+      
+      var idc=document.createElement("h1");
+      idc.innerText=cheakout[i]["id"];
+       idc.id="id";
+
+      
+      var titlec=document.createElement("h1");
+      titlec.innerText=cheakout[i]["title"];
+      titlec.id="title" 
+      
+      var pricec=document.createElement("h2");
+      pricec.innerText=cheakout[i]["price"];
+      
+      var descriptionc=document.createElement("p");
+      descriptionc.innerText=cheakout[i]["description"];
+        descriptionc.id="description"
+      
+      var img=document.createElement("img");
+      img.setAttribute("src",cheakout[i]["image"]);
+        img.id="image"
+
+
+
+      divc.append(idc,titlec,pricec,descriptionc,img)
+      document.body.append(divc)
+      }
+
+
+
+      console.log(cheakout[0]["image"])
+
+
+        
+
+
+    
+    console.log(titlec)
+  </script>  
+</body>
+</html>
